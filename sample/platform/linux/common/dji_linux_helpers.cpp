@@ -210,11 +210,13 @@ LinuxSetup::initVehicle()
   }
 
   /*! Linker add uart channel */
-  if (!addFCUartChannel(environment->getDevice().c_str(),
-                        environment->getBaudrate())) {
-    DERROR("Failed to initialize Linker channel");
-    return false;
-  }
+if (!addFCUartChannel(...)) {
+  std::cerr << "[DEBUG] Failed to add FC UART channel at " 
+            << environment->getDevice() 
+            << " @ " << environment->getBaudrate() << std::endl;
+  DERROR("Failed to initialize Linker channel");
+  return false;
+}
 
   /*! Linker add USB acm channel */
   if (!addUSBACMChannel(environment->getDeviceAcm().c_str(),
