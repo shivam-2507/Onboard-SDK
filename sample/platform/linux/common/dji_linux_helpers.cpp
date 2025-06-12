@@ -214,7 +214,9 @@ if (!addFCUartChannel(...)) {
   std::cerr << "[DEBUG] Failed to add FC UART channel at " 
             << environment->getDevice() 
             << " @ " << environment->getBaudrate() << std::endl;
-  DERROR("Failed to initialize Linker channel");
+  DERROR("Failed to initialize Linker channel at %s @ %d",
+       environment->getDevice().c_str(),
+       environment->getBaudrate());
   return false;
 }
 
